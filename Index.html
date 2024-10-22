@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Link in Iframe</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .iframe-container {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            z-index: 999;
+        }
+
+        .iframe-container iframe {
+            width: 80%;
+            height: 80%;
+            border: none;
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .floating-link {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #3498db;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .floating-link:hover {
+            transform: scale(1.1);
+        }
+
+        .floating-link img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .close-iframe {
+            position: absolute;
+            top: 5%;
+            right: 10%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#" class="floating-link" onclick="openIframe()">
+        <img src="logo.png" alt="Logo">
+    </a>
+
+    <div class="iframe-container" id="iframeContainer">
+        <div class="close-iframe" onclick="closeIframe()">✖</div>
+        <iframe src="https://app.droxy.ai/guest-agent/67179e2da35342c70c9b13f3" id="iframe"></iframe>
+    </div>
+
+    <script>
+        function openIframe() {
+            document.getElementById('iframeContainer').style.display = 'block';
+        }
+
+        function closeIframe() {
+            document.getElementById('iframeContainer').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
