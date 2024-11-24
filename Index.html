@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Calculator</title>
+    <title>Calculator</title>
     <style>
         * {
   box-sizing: border-box;
@@ -76,6 +76,19 @@ button:hover {
     grid-row: span 3;
     color: #fff;
 }
+
+      #back-button {
+          position: fixed;
+          top: 20px;
+          left: 20px;
+          padding: 10px 20px;
+          background-color: #007BFF;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 16px;
+      }
     </style>
 
 </head>
@@ -114,7 +127,10 @@ button:hover {
             <button class="memory">M+</button>
         </div>
     </div>
-        
+
+
+   <button id="back-button" onclick="history.back()">Back</button>
+  
 <script>
         const buttonsEl = document.querySelectorAll("button");
 const inputFieldEl = document.getElementById("result");
